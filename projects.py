@@ -1,71 +1,33 @@
-#import calendar
-#year = 2023
-#month = 9
-#x = calendar.month(year, month)
-#print(x)
-#import os
-#import turtle
-#turtle.speed(3)
-#turtle.bgcolor("black")
-#turtle.pensize(3)
-#def func():
-#    for i in range(200):
-#        turtle.right(1)
-#        turtle.forward(1)
-#turtle.color("red", "pink")
-#turtle.begin_fill()
-#turtle.left(140)
-#turtle.forward(111.65)
-#func()
-#turtle.left(120)
-#func()
-#turtle.forward(111.65)
-#turtle.end_fill()
-#turtle.hideturtle()
-#turtle.done()
+import calendar
+year = 2023
+month = 9
+x = calendar.month(year, month)
+print(x)
+import os
+import turtle
+turtle.speed(3)
+turtle.bgcolor("black")
+turtle.pensize(3)
+def func():
+    for i in range(200):
+        turtle.right(1)
+        turtle.forward(1)
+turtle.color("red", "pink")
+turtle.begin_fill()
+turtle.left(140)
+turtle.forward(111.65)
+func()
+turtle.left(120)
+func()
+turtle.forward(111.65)
+turtle.end_fill()
+turtle.hideturtle()
+turtle.done()
 
-#print("\nPython Calculator: \nPress q to exit\n")
-#while(1):
-#    exp = input(">>>")
-#    if(exp=="q"):
-#        exit(0)
-#    print(eval(exp))
-
-import cv2
-cap = cv2.VideoCapture(0)
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
-
-while True:
-    ret, frame = cap.read()
-
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
-    for (x, y, w, h) in faces:
-        cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 5)
-        roi_gray = gray[y:y+w, x:x+w]
-        roi_color = frame[y:y+h, x:x+w]
-        eyes = eye_cascade.detectMultiScale(roi_gray, 1.3, 5)
-        for (ex, ey, ew, eh) in eyes:
-            cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 5)
-
-    cv2.imshow('frame', frame)
-
-    if cv2.waitKey(1) == ord('q'):
-        break
-
-cap.release()
-cv2.destroyAllWindows()
-
-# copyright Tim Ruscia aka techwithtim
-# code from https://github.com/techwithtim/OpenCV-Tutorials
-
-
-
-
-
-
-
-
-
+print("\nPython Calculator: \nPress q to exit\n")
+while(1):
+    exp = input(">>>")
+    if(exp=="q"):
+        exit(0)
+    print(eval(exp))
 
